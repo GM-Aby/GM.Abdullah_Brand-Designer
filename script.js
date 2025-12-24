@@ -222,7 +222,7 @@ gsap.set('.contact-form', { opacity: 0, x: 40 });
 // ===== Form Submission =====
 const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+
     
     const btn = contactForm.querySelector('button[type="submit"]');
     const originalText = btn.textContent;
@@ -250,3 +250,4 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 console.log('🚀 Portfolio loaded successfully!');
+
