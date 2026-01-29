@@ -237,6 +237,27 @@ contactForm.addEventListener('submit', (e) => {
     }, 3000);
 });
 
+function updateTime() {
+    const options = { 
+        timeZone: 'Asia/Dhaka', // Fixed to Bangladesh Time
+        hour: '2-digit', 
+        minute: '2-digit', 
+        hour12: true 
+    };
+    const formatter = new Intl.DateTimeFormat('en-US', options);
+    const bdTime = formatter.format(new Date());
+    
+    // Status message based on time (Optional but cool!)
+    let status = (new Date().getHours() >= 23 || new Date().getHours() < 7) ? " (Sleeping)" : " (Available)";
+    
+    document.getElementById('clock').innerHTML = "My Local Time: " + bdTime + status;
+}
+setInterval(updateTime, 1000);
+
+
+
+
+
 // ===== Scroll Progress Bar =====
 const scrollProgress = document.createElement('div');
 scrollProgress.className = 'scroll-progress-bar';
@@ -250,4 +271,5 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 console.log('🚀 Portfolio loaded successfully!');
+
 
